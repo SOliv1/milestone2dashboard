@@ -41,7 +41,7 @@
         function makeGraphs(error, populationcountryData)   {
             var ndx = crossfilter(populationcountryData);
             var country_dim = ndx.dimension(dc.pluck('Country'))
-            var total_population_per_country = _dim.country.group().reduceSum(dc.pluck('Population'));
+            var total_population_per_country = country_dim.group().reduceSum(dc.pluck('Population'));
 
 
             dc.barChart('#per-country-chart')
@@ -87,7 +87,7 @@
                 .yAxis().ticks(4);
 
             dc.renderAll();
-        }    
+        }
     </script>
 </body>
 
