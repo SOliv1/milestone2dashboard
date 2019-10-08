@@ -53,7 +53,8 @@
                 .transitionDuration(500)
                 .x(d3.scale.ordinal())
                 .xUnits(dc.units.ordinal)
-                .xAxisLabel("Country")
+                .xAxisLabel("Country");
+                .xAxisLabelAttr('transform' , 'rotate(45)')
                 .yAxis().ticks(4);
 
             var continent_dim = ndx.dimension(dc.pluck('Continent'));
@@ -69,6 +70,7 @@
                 .x(d3.scale.ordinal())
                 .xUnits(dc.units.ordinal)
                 .xAxisLabel("Continent")
+                .xAxisLabelAttr('transform' , 'rotate(45)')
                 .yAxis().ticks(4);
 
             var continent_dim = ndx.dimension(dc.pluck('Continent'));
@@ -83,7 +85,8 @@
                 .transitionDuration(500)
                 .x(d3.scale.ordinal())
                 .xUnits(dc.units.ordinal)
-                .xAxisLabel("Area")
+                .xAxisLabel("Area");
+                .xAxisLabelAttr('transform' , 'rotate(45)')
                 .yAxis().ticks(4);
 
             dc.renderAll();
