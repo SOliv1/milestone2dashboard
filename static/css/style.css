@@ -1,0 +1,25 @@
+
+
+#per-country-chart .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+}
+#per-country-chart .attr{
+    width: 300;
+    height: 350;
+}
+
+
+
+#per-continent-chart .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+}
+
+
+
+
+#per-area-chart .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+}

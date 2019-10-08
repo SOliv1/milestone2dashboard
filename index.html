@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="static/css/dc.min.css" type="text/css" />
+    <link rel="stylesheet" href="static/css/style.css" type="text/css" />
     <style>
         div {
             clear: left;
@@ -53,8 +54,7 @@
                 .transitionDuration(500)
                 .x(d3.scale.ordinal())
                 .xUnits(dc.units.ordinal)
-                .xAxisLabel("Country");
-                .xAxisLabelAttr('transform' , 'rotate(45)')
+                .xAxisLabel("Country")
                 .yAxis().ticks(4);
 
             var continent_dim = ndx.dimension(dc.pluck('Continent'));
@@ -70,7 +70,6 @@
                 .x(d3.scale.ordinal())
                 .xUnits(dc.units.ordinal)
                 .xAxisLabel("Continent")
-                .xAxisLabelAttr('transform' , 'rotate(45)')
                 .yAxis().ticks(4);
 
             var continent_dim = ndx.dimension(dc.pluck('Continent'));
@@ -85,8 +84,7 @@
                 .transitionDuration(500)
                 .x(d3.scale.ordinal())
                 .xUnits(dc.units.ordinal)
-                .xAxisLabel("Area");
-                .xAxisLabelAttr('transform' , 'rotate(45)')
+                .xAxisLabel("Area")
                 .yAxis().ticks(4);
 
             dc.renderAll();
