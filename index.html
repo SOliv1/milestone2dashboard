@@ -52,29 +52,32 @@
         chart
             .colorAccessor(function (d) {
             if (d.value > 12)   {
-                return "test1";
+                return "Country";
             }
              if (d.value > 9)   {
-                return "test2";
+                return "Population";
             }
              if (d.value > 6)   {
-                return "test3";
+                return "Continent";
             }
              if (d.value > 3)   {
-                return "test4";
+                return "Area";
             }
         })
-            .colors(d3.scale.ordinal().domain(["test1", "test2", "test3", "test4"])
-            .range(["red", "orange", "yellow", "green"]))
+
 .
     function makeGraphs(error, populationcountryData)   {
             var ndx = crossfilter(populationcountryData);
             var country_dim = ndx.dimension(dc.pluck('Country'))
             var total_population_per_country = country_dim.group().reduceSum(dc.pluck('Population'));
+            var  colors = d3.scale.ordinal().domain(["Country", "Population", "Continent", "Area"])
+            var range = (["red", "orange", "yellow", "green"]))
 
             dc.barChart('#per-country-chart')
                 .width(400)
-                .height(300)
+                .height(400)
+                .colors(d3.scale.ordinal().domain(["Country", "Population"])
+                .range(["red", "yellow"]))
                 .margins({ top: 10, right: 50, bottom: 200, left: 50 })
                 .dimension(country_dim)
                 .group(total_population_per_country)
@@ -86,10 +89,14 @@
 
             var continent_dim = ndx.dimension(dc.pluck('Continent'));
             var total_population_per_continent = continent_dim.group().reduceSum(dc.pluck('Population'));
+            var  colors = d3.scale.ordinal().domain(["Country", "Population", "Continent", "Area"])
+            var range = (["red", "orange", "yellow", "green"]))
 
             dc.barChart('#per-continent-chart')
                 .width(400)
-                .height(280)
+                .height(400)
+                .colors(d3.scale.ordinal().domain(["Continent", "Population"])
+                .range(["orange", "yellow"]))
                 .margins({ top: 10, right: 50, bottom: 150, left: 50 })
                 .dimension(continent_dim)
                 .group(total_population_per_continent)
@@ -101,10 +108,14 @@
 
             var continent_dim = ndx.dimension(dc.pluck('Continent'));
             var total_area_per_continent = continent_dim.group().reduceSum(dc.pluck('Area'));
+            var  colors = d3.scale.ordinal().domain(["Country", "Population", "Continent", "Area"])
+            var range = (["red", "orange", "yellow", "green"]))
 
             dc.barChart('#per-area-chart')
                 .width(400)
-                .height(280)
+                .height(400)
+                .colors(d3.scale.ordinal().domain(["Continent", "Area"])
+                .range(["yellow", "orange"]))
                 .margins({ top: 10, right: 50, bottom: 100, left: 50 })
                 .dimension(continent_dim)
                 .group(total_area_per_continent)
