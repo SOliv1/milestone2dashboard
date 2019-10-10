@@ -55,7 +55,7 @@
                 return "Country";
             }
              if (d.value > 9)   {
-                return "test2";
+                return "Continent";
             }
              if (d.value > 6)   {
                 return "test3";
@@ -91,7 +91,7 @@
             dc.barChart('#per-continent-chart')
                 .width(400)
                 .height(400)
-                .colors(d3.scale.ordinal().domain(["test1", "test2", "test3", "test4"])
+                .colors(d3.scale.ordinal().domain(["test1", "Continent", "test3", "test4"])
                 .range(["red", "orange", "yellow", "green"]))
                 .margins({ top: 10, right: 50, bottom: 150, left: 50 })
                 .dimension(continent_dim)
