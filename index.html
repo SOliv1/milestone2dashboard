@@ -49,11 +49,28 @@
             .defer(d3.json, "data/populationcountry.json")
             .await(makeGraphs);
 
-        function makeGraphs(error, populationcountryData)   {
+        chart
+            .colorAccessor(function (d) {
+            if (d.value > 12)   {
+                return "test1";
+            }
+             if (d.value > 9)   {
+                return "test2";
+            }
+             if (d.value > 6)   {
+                return "test3";
+            }
+             if (d.value > 3)   {
+                return "test4";
+            }
+        })
+            .colors(d3.scale.ordinal().domain(["test1", "test2", "test3", "test4"])
+            .range(["red", "orange", "yellow", "green"]))
+.
+    function makeGraphs(error, populationcountryData)   {
             var ndx = crossfilter(populationcountryData);
             var country_dim = ndx.dimension(dc.pluck('Country'))
             var total_population_per_country = country_dim.group().reduceSum(dc.pluck('Population'));
-
 
             dc.barChart('#per-country-chart')
                 .width(400)

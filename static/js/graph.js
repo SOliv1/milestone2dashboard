@@ -27,19 +27,5 @@ function show_discipline_selector(ndx) {
 
 
 
-function uniq(a, kf) {
-    var seen = [];
-    return a.filter(x => seen[kf(x)] ? false : (seen[kf(x)] = true));
-}
-
-barChart2.legendables = function() {
-      var vals = uniq(Group2.all(), kv => kv.key[1]),
-          sorted = vals.sort((a,b) => a.key[1] > b.key[1] ? 1 : -1);
-          // or in X order: sorted = vals.sort((a,b) => a.key[0] - b.key[0]);
-      return sorted.map(function(kv) {
-                    return {
-                        chart: barChart2,
-                        name: kv.key[1],
-                        color: barChart2.colors()(kv.key[1]) }; }) };
 
 
